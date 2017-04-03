@@ -1,0 +1,25 @@
+var tagName = "img";
+var attributeName = "data-src";
+var imageResizerURL = "img.purch.com";
+var images = document.getElementsByTagName(tagName);
+var nonMatchingTags[];
+var successFlag = true;
+for(i = 0; i < images.length; i++)
+{
+    if(images[i].hasAttribute(attributeName))
+	{
+        if((images[i].getAttribute(attributeName)).indexOf(imageResizerURL) == -1);
+		{
+			successFlag = false;
+			nonMatchingTags.push(images[i]);
+		}
+	}
+}
+if (successFlag == true)
+{
+	window.alert("Success...!! All <" + tagName "> tags contain '" + imageResizerURL "' in the value of attribute : " + attributeName);
+}
+else
+{
+	window.alert(nonMatchingTags.join("\n"));
+}
